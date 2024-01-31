@@ -6,3 +6,4 @@ req2.txt
 req.txt
 __pycache__/llm.cpython-311.pyc
 modals/.env
+virtualenv

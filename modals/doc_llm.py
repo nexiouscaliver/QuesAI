@@ -3,8 +3,8 @@ from langchain.text_splitter import CharacterTextSplitter #text splitter
 from langchain.embeddings import HuggingFaceEmbeddings #for using HugginFace models
 from langchain.vectorstores import FAISS  
 from langchain.chains.question_answering import load_qa_chain
-#from langchain.chains.question_answering import load_qa_chain
-#from langchain import HuggingFaceHub
+from langchain.chains.question_answering import load_qa_chain
+from langchain import HuggingFaceHub
 from langchain_community.llms import HuggingFaceHub
 from langchain.document_loaders import UnstructuredPDFLoader  #load pdf
 from langchain.indexes import VectorstoreIndexCreator #vectorize db index with chromadb
@@ -14,11 +14,12 @@ from langchain.chains.question_answering import load_qa_chain
 import csv
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-#from langchain import HuggingFaceHub
+from langchain import HuggingFaceHub
 import os
 
-
-def load_pdf_to_db(pdfname='10-repo.pdf') -> FAISS:
+# cwd = os.getcwd()
+cwd =os.path.abspath(os.path.join(os.getcwd(), os.pardir))
+def load_pdf_to_db(pdfname=cwd+'\\datasets\\10-repo.pdf') -> FAISS:
     loader = PyPDFLoader(pdfname)
     pages = loader.load_and_split()
     textsplitter = RecursiveCharacterTextSplitter(
