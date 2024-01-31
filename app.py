@@ -1,6 +1,6 @@
 import streamlit as st
-import llm 
-
+#import llm 
+from modals import llm
 st.title('AI based question generator')
 
 with st.sidebar:
