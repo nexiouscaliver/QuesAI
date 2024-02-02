@@ -6,26 +6,30 @@ import mysql.connector as sql
 app = Flask(__name__)
 con=sql.connect(host="localhost",port=3310,user="root",passwd="",database="test")
 
-@app.route('/')
-def index():
-    return '<h1>Hello world</h1>'
+# @app.route('/')
+# def index():
+#     return redirect(url_for("login"))
 
-@app.route('/login',methods=["POST","GET"])
+@app.route('/',methods=["POST","GET"])
 def login():
     if request.method == "POST":
         user = request.form["nm"]
-        return redirect(url_for("user", usr=user))
+        q= "INSERT INTO nice VALUES('{}')".format(user)
+        cur=con.cursor()
+        cur.execute(q)
+        con.commit()
+        #return redirect(url_for("user", usr=user))
     else:
         return render_template("index.html")
 
 # yaha paa problem haa error file ma kya error haa check kar laa
-@app.route("/<usr>")
-def user(usr):
-    q="INSERT INTO nice VALUES('{}')".format(usr)
-    #return q
-    cur=con.cursor()
-    cur.execute(q)
-    con.commit()
+# @app.route("/<usr>")
+# def user(usr):
+#     q="INSERT INTO nice VALUES('{}')".format(usr)
+#     #return q
+#     cur=con.cursor()
+#     cur.execute(q)
+#     con.commit()
     #return f"<h1>{usr}</h1>"
 
 if __name__=='main':
