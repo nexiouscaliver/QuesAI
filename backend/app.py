@@ -18,7 +18,7 @@ def login():
         cur=con.cursor()
         cur.execute(q)
         con.commit()
-        #return redirect(url_for("user", usr=user))
+        return render_template("test.html")
     else:
         return render_template("index.html")
 
