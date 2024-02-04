@@ -9,3 +9,4 @@ modals/.env
 virtualenv
 backend/env
 backend/__pycache__
+.vscode
