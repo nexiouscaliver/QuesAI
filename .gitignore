@@ -7,3 +7,5 @@ req.txt
 __pycache__/llm.cpython-311.pyc
 modals/.env
 virtualenv
+backend/env
+backend/__pycache__
