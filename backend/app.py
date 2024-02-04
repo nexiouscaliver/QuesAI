@@ -22,7 +22,8 @@ def login():
     else:
         return render_template("index.html")
 
-# yaha paa problem haa error file ma kya error haa check kar laa
+# kadia : problem troubleshoot compleated.
+#use static path fot @app.route to prevent errors and pass usrname data to function coressponding to it
 # @app.route("/<usr>")
 # def user(usr):
 #     q="INSERT INTO nice VALUES('{}')".format(usr)
