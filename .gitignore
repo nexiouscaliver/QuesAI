@@ -2,9 +2,10 @@
 #10-repo.pdf
 openai api key.txt
 ps-venv-act.txt
-req2.txt
+#req2.txt
 req.txt
 __pycache__/llm.cpython-311.pyc
+__pycache__
 modals/.env
 virtualenv
 backend/env
