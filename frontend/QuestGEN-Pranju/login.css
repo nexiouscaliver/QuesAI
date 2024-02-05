@@ -15,8 +15,8 @@
 }  
 
 .form-box{
-    width: 90%;
-    max-width: 450px;
+    width: 70%;
+    max-width: 400px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -67,7 +67,7 @@ input{
 }
 
 form p{
-    text-align: left;
+    text-align: center ;
     font-size: 13px;
 }
 form p a{
@@ -80,7 +80,7 @@ form p a{
     display: flex;
     justify-content: space-between;
 }
-.btn-field button{ 
+.btn-field button{
     flex-basis: 48%;
     background: #3c00a0;
     color: #fff;
@@ -100,4 +100,3 @@ form p a{
     background: #eaeaea;
     color: #555;
 }
-
