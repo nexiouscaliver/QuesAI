@@ -24,6 +24,19 @@ def signin():
     else:
         return render_template("index.html")
 
+@app.route('/login/')
+def login():
+    emailid = request.args.get('email')
+    passw = request.args.get('passwd')
+    cur= con.cursor()
+    s="SELECT * FROM data WHERE Email='{}' AND Password='{}'".format(emailid,passw)
+    cur.execute(s)
+    data=cur.fetchall()
+    if data:
+        return "there is data"
+    else:
+        return "no data "
+
 # yaha paa problem haa error file ma kya error haa check kar laa
 # @app.route("/<usr>")
 # def user(usr):
@@ -34,5 +47,5 @@ def signin():
 #     con.commit()
     #return f"<h1>{usr}</h1>"
 
-if __name__=='main':
-    app.run()
+    if __name__=='main':
+        app.run()
