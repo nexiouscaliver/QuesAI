@@ -11,19 +11,33 @@ con=sql.connect(host="localhost",port=3310,user="root",passwd="",database="test"
 #     return redirect(url_for("login"))
 
 @app.route('/',methods=["POST","GET"])
-def login():
+def signin():
     if request.method == "POST":
-        user = request.form["nm"]
-        q= "INSERT INTO nice VALUES('{}')".format(user)
+        name = request.form["nm"]
+        email = request.form["em"]
+        passwd = request.form["passwd"]
+        q= "INSERT INTO data(Name,Email,Password) VALUES('{}','{}','{}')".format(name,email,passwd)
         cur=con.cursor()
         cur.execute(q)
         con.commit()
-        return render_template("test.html")
+        return render_template("login.html")
     else:
         return render_template("index.html")
 
-# kadia : problem troubleshoot compleated.
-#use static path fot @app.route to prevent errors and pass usrname data to function coressponding to it
+@app.route('/login/')
+def login():
+    emailid = request.args.get('email')
+    passw = request.args.get('passwd')
+    cur= con.cursor()
+    s="SELECT * FROM data WHERE Email='{}' AND Password='{}'".format(emailid,passw)
+    cur.execute(s)
+    data=cur.fetchall()
+    if data:
+        return "there is data"
+    else:
+        return "no data "
+
+# yaha paa problem haa error file ma kya error haa check kar laa
 # @app.route("/<usr>")
 # def user(usr):
 #     q="INSERT INTO nice VALUES('{}')".format(usr)
@@ -33,5 +47,5 @@ def login():
 #     con.commit()
     #return f"<h1>{usr}</h1>"
 
-if __name__=='main':
-    app.run()
+    if __name__=='main':
+        app.run()
