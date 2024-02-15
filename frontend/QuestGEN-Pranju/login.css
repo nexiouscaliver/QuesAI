@@ -100,3 +100,10 @@ form p a{
     background: #eaeaea;
     color: #555;
 }
+
+.submitBtn{
+    width: 70px;
+    height: 30px;
+    border-radius: 40px;
+    margin-top: 20px;
+}
