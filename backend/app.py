@@ -4,7 +4,7 @@
 from flask import Flask, render_template, redirect,request,url_for
 import mysql.connector as sql
 app = Flask(__name__)
-con=sql.connect(host="localhost",port=3310,user="root",passwd="",database="test")
+con = sql.connect(host="sql6.freesqldatabase.com", user="sql6682227", password="3Pbj2MkdEP", database="sql6682227")
 
 # @app.route('/')
 # def index():
